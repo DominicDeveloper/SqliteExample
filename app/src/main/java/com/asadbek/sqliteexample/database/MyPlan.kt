@@ -10,4 +10,11 @@ interface MyPlan {
     // userlarni olish uchun fun
     fun getAllUsers():ArrayList<MyUser>
 
+    // user ma`lumotlarini o`zgartirish uchun
+    fun editUser(myUser: MyUser):Int
+
+
+    // user ni o`chirish
+    fun deleteUser(myUser: MyUser)
+
 }

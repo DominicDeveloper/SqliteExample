@@ -1,5 +1,6 @@
 package com.asadbek.sqliteexample
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -32,7 +33,15 @@ class MainActivity : AppCompatActivity() {
             binding.edtSurname.text.clear()
         }
 
-        binding.btnGetData.setOnClickListener {
+        binding.btnNextActivity.setOnClickListener {
+            val intent = Intent(this,ListOfUsersActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+    /*
+    binding.btnGetData.setOnClickListener {
             var data:String = ""
             list.addAll(myBase.getAllUsers())
             list.forEach {
@@ -41,6 +50,5 @@ class MainActivity : AppCompatActivity() {
             binding.txtView.text = data
         }
 
-
-    }
+     */
 }

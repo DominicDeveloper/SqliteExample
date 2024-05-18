@@ -47,4 +47,19 @@ class MyBase(context: Context):SQLiteOpenHelper(context,"mydatabase.db",null,1),
         }
         return list
     }
+
+    override fun editUser(myUser: MyUser): Int {
+        val writer = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put("$ID",myUser.id)
+        contentValues.put("$NAME",myUser.name)
+        contentValues.put("$SURNAME",myUser.surname)
+        return writer.update("$TABLE_NAME",contentValues,"$ID = ?", arrayOf(myUser.id.toString()))
+    }
+
+    override fun deleteUser(myUser: MyUser) {
+        val writer = this.writableDatabase
+        writer.delete("$TABLE_NAME","$ID = ?", arrayOf(myUser.id.toString()))
+        writer.close()
+    }
 }
